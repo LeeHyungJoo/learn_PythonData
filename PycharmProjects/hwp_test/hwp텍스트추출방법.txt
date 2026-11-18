@@ -1,0 +1,1 @@
+C:\Users\psy>hwp5txt C:\hwp_test\선형대수의기초참고문서.hwp --output c:\hwp_test\test.txt

@@ -1,0 +1,85 @@
+cx_Oracle 라이브러리를 설치
+python -m pip install cx_Oracle --upgrade
+
+system/system
+
+Destination Folder: C:\oraclexe\
+Oracle Home: C:\oraclexe\app\oracle\product\11.2.0\server\
+Oracle Base:C:\oraclexe\
+Port for 'Oracle Database Listener': 1521
+Port for 'Oracle Services for Microsoft Transaction Server': 2030
+Port for 'Oracle HTTP Listener': 8080
+
+oarcle 설치 후 Run SQL Command line  메뉴 실행
+
+SQL>connect
+system
+system
+
+scott 계정의 활성화
+@ C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
+
+scott 계정의 패스워드 지정
+SQL> alter user scott identified by tiger;
+
+scott 계정으로 접속
+SQL>connect
+scott
+tiger
+
+
+SQL> select table_name from tabs;
+
+TABLE_NAME
+------------------------------------------------------------
+DEPT
+EMP
+BONUS
+SALGRADE
+
+디비버 설치(무료 GUI 도구)
+DBeaver Community 22.2.1
+https://dbeaver.io/download/
+
+설치 --> 실행 --> 데이터베이스 --> 새 데이터베이스 연결
+oracle 선택
+
+oracle connection settings
+Main
+Host : localhost
+Database : XE
+
+system
+system
+Client : XE
+
+oracle connection settings
+Basic
+Host : localhost
+Database : XE
+
+scott
+tiger
+Client : XE
+
+연결된 이름 우클릭 --> SQL 편집기 --> SQL 편집기
+
+======= hr 계정 풀기 ============
+SQL>connect system/system as sysdba;
+
+SQL>SELECT username, default_tablespace, account_status
+FROM DBA_USERS;
+
+SQL>ALTER USER hr
+IDENTIFIED BY hr
+ACCOUNT UNLOCK;
+
+SQL>connect hr/hr
+
+## table 정보 보기 ###
+SQL>select * from tab; 
+SQL>select table_name from user_tables;
+SQL>select tname from tab;
+
+
+

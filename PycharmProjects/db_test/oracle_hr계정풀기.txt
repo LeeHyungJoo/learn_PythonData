@@ -1,0 +1,11 @@
+SQL> connect system/system as sysdba;
+
+SQL> SELECT username, default_tablespace, account_status FROM DBA_USERS;
+
+SQL> ALTER USER hr 
+IDENTIFIED BY hr 
+ACCOUNT UNLOCK;
+
+SQL> connect hr/hr
+SQL> select * from tab; 
+SQL> select table_name from user_tables; 

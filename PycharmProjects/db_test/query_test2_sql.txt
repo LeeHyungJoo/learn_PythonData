@@ -1,0 +1,42 @@
+
+# 1. BOSTON이나 DALLAS 에 위치한 부서(부서명)를 출력
+sql = "select dname from dept where loc='BOSTON' OR loc='DALLAS' "
+
+# #2. 급여가 2000에서 3000 사이인 사원(사원명)을 출력
+sql = "select ename from emp where sal>2000 AND sal<3000"
+
+# #3.이름이 A 로 시작되는 사원을 출력
+sql = "select ename	from emp where ename like 'A%'"
+#
+# #4. 커미션 지급 대상인 사원을 출력
+sql = "select ename from emp	where comm is not null"
+#
+# #5. 직종이 CLERK 인 사원 중에서 급여가 1000 이상인 사원을 출력
+sql = "select ename	from emp where job = 'CLERK' AND sal>1000"
+#
+# #6. 사번이 7900인 사원의 이름과 급여를 출력
+sql = "select ename, sal from emp where empno = 7900"
+#
+# #7.emp 테이블의 부서번호로 정렬(높은번호부터)하고,
+# # 같은 부서일 때는 월급(높은월급부터)으로 정렬
+sql = "select * from emp order by deptno desc,sal desc"
+#
+# #8. join
+# # 20번 부서의 이름과 그 부서에 근무하는 사원의 이름을 출력
+sql = select d.dname, e.ename from dept d, emp e where d.deptno = e.deptno and e.deptno = 20 "
+#
+# #9. 그룹함수
+# # 직종별 최고 급여를 급여가 많은 직종부터 출력
+
+sql = """select job, max(sal)
+ 	 from emp
+ 	 group by job
+ 	 order by max(sal) desc"""
+
+# #10. 서브 쿼리
+# # 각 부서별로 최고급여를 받는 사원을 출력
+sql = """select deptno, empno, ename sal
+ 	from emp
+ 	where (deptno,sal) in (select deptno, max(sal)
+ 			       from emp
+ 			       group by deptno)"""
